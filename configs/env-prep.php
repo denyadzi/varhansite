@@ -1,5 +1,7 @@
 <?php
 
+use yii\helpers\ArrayHelper;
+
 /**
  * This config should be used on preproduction enviroment.
  * The preproduction enviroment will be used to show the website to the customer and prepare it for prod deployment.
@@ -14,4 +16,13 @@ define ('YII_DEBUG', false);
 
 $config = require ('env-common.php');
 
-return \yii\helpers\ArrayHelper::merge($config, require('env-local-db.php'));
+$storageConfig = [];
+
+$storageConfig['components']['storage'] = [
+    'class' => 'luya\admin\filesystem\LocalFileSystem',
+    'serverPath' => realpath(__DIR__ . '/../../public/storage'),
+];
+
+return ArrayHelper::merge($config,
+                          require('env-local-db.php'),
+                          $storageConfig);
