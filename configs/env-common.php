@@ -94,6 +94,17 @@ $config = [
                 ],
             ],
         ],
+        'assetManager' => [
+            'class' => 'luya\web\AssetManager',
+            'fileMode' => 0664,
+            'dirMode' => 0775,
+            'bundles' => \yii\helpers\ArrayHelper::merge(require ('env-local-assets.php'), [
+                'yii\\web\\JqueryAsset' => [
+                    'sourcePath' => '@bower/jquery/dist',
+                    'js' => ['jquery.js'],
+                ]
+            ]),
+        ],
     ],
 ];
 
