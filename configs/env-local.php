@@ -13,6 +13,10 @@ defined('YII_ENV') or define('YII_ENV', 'local');
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 
 $config = require ('env-common.php');
+
+$config['modules']['admin']['userIdleTimeout'] = 3600 * 3;
+$config['components']['assetManager']['linkAssets'] = true;
+
 if (YII_DEBUG) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = ['class' => 'yii\debug\Module', 'allowedIPs' => ['*']];

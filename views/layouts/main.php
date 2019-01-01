@@ -21,8 +21,10 @@ $this->beginPage();
         <?php $this->head() ?>
     </head>
     <body>
-    <?php $this->beginBody() ?>
+	<?php $this->beginBody() ?>
+	<?=Yii::$app->element->bigHeader()?>
 	<?=$content?>
+	<?=Yii::$app->element->smallHeader()?>
     <?php $this->endBody() ?>
     </body>
 </html>

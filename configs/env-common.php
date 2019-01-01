@@ -92,6 +92,9 @@ $config = [
                 'app*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                 ],
+                'blocks*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                ],
             ],
         ],
         'assetManager' => [
