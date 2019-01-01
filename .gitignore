@@ -12,6 +12,7 @@ composer.phar
 # project config
 /configs/env-local-db.php
 /configs/env.php
+/configs/env-local-assets.php
 
 # SASS & GULP
 /resources/.sass-cache
