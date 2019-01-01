@@ -113,7 +113,7 @@ $config = [
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
-                    'levels' => ['info', 'profile', 'trace', 'error', 'warning'],
+                    'levels' => ['info', 'error', 'warning'],
                     'except' => [
                         'yii\db\*',
                     ],
