@@ -105,6 +105,18 @@ $config = [
                 ]
             ]),
         ],
+        'log' => [
+            'traceLevel' => YII_DEBUG ? 3 : 0,
+            'targets' => [
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['info', 'profile', 'trace', 'error', 'warning'],
+                    'except' => [
+                        'yii\db\*',
+                    ],
+                ],
+            ],
+        ],
     ],
 ];
 
