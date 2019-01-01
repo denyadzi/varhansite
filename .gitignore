@@ -17,6 +17,9 @@ composer.phar
 /resources/.sass-cache
 /resources/local/
 
+#IDE: emacs
+*~
+
 #IDE: netbeans
 /nbproject
 
