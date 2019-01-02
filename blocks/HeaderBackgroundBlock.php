@@ -55,7 +55,7 @@ class HeaderBackgroundBlock extends PhpBlock
      */
     public function icon()
     {
-        return 'extension'; // see the list of icons on: https://design.google.com/icons/
+        return 'perm_media'; // see the list of icons on: https://design.google.com/icons/
     }
  
     /**
