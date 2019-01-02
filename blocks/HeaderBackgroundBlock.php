@@ -6,16 +6,16 @@ use Yii;
 use app\views\Constants;
 use luya\helpers\Html;
 use luya\Hook;
-use luya\cms\base\PhpBlock;
 use luya\cms\frontend\blockgroups\ProjectGroup;
 use luya\cms\helpers\BlockHelper;
+use app\blocks\StaticBackgroundBlock;
 
 /**
  * Header Background Block.
  *
  * File has been created with `block/create` command. 
  */
-class HeaderBackgroundBlock extends PhpBlock
+class HeaderBackgroundBlock extends StaticBackgroundBlock
 {
     /**
      * @var bool Choose whether a block can be cached trough the caching component. Be carefull with caching container blocks.
@@ -73,36 +73,5 @@ class HeaderBackgroundBlock extends PhpBlock
                 ],
             ],
         ];
-    }
-
-    public function getImageUrl($hook)
-    {
-        $selected = $this->getVarValue('image');
-        if ( ! $selected) return '';
-
-        $image = Yii::$app->storage->getImage($selected);
-        return $image->source;
-    }
-    
-    /**
-     * {@inheritDoc} 
-     *
-    */
-    public function admin()
-    {
-        $selected = $this->getVarValue('image');
-        $content = '';
-        if ($selected) {
-            $image = Yii::$app->storage->getImage($selected);
-            $content = Html::tag('div', '', [
-                'style' => [
-                    'background-image' => "url({$image->source})",
-                    'background-size' => 'cover',
-                    'height' => '300px',
-                ]]);
-        } else {
-            $content = Yii::t('blocks/header-background', 'empty');
-        }
-        return Html::tag('h5', $this->name(), ['class' => 'mb-3']) . $content;
     }
 }
