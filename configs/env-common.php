@@ -107,6 +107,12 @@ $config = [
                     'js' => ['jquery.js'],
                 ]
             ]),
+            'converter' => [
+                'class' => 'yii\web\AssetConverter',
+                'commands' => [
+                    'scss' => ['css', 'node-sass {from} > {to}'],
+                ],
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

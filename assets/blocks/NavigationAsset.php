@@ -6,7 +6,7 @@ class NavigationAsset extends \luya\web\Asset
 {
     public $sourcePath = '@app/resources-block/navigation';
     public $css = [
-        'css/style.css',
+        'scss/style.scss',
     ];
     public $js = [];
 }
