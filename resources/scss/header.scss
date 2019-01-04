@@ -1,8 +1,9 @@
-header {
+.site-header {
     background-size: cover;
     min-height: 500px;
+    position: relative;
 }
-header .placeholder-bottom {
+.site-header-bottom {
     bottom: 0;
     left: 0;
     position: absolute;

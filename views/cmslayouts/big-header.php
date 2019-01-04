@@ -2,11 +2,11 @@
 use app\views\Constants;
 use luya\Hook;
 ?>
-<header style="background-image: url(<?=Hook::string(Constants::HOOK_HEADER_BG_IMAGE)?>)">
-    <div>
+<header class="site-header" style="background-image: url(<?=Hook::string(Constants::HOOK_HEADER_BG_IMAGE)?>)">
+    <div class="site-header-content">
 	<?=$placeholders['content']?>
     </div>
-    <div class="placeholder-bottom">
+    <div class="site-header-bottom">
 	<?=$placeholders['bottom']?>
     </div>
 </header>

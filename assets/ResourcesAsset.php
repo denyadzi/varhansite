@@ -12,7 +12,7 @@ class ResourcesAsset extends \luya\web\Asset
     public $css = [
         'css/normalize.css',
         'css/skeleton.css',
-        'css/header.css',
+        'scss/header.scss',
     ];
 
     public $js = [

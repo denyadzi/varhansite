@@ -17,6 +17,9 @@ return [
     // The list of asset bundles to compress:
     'bundles' => [
         'app\assets\ResourcesAsset',
+        'app\assets\blocks\ContentAsset',
+        'app\assets\blocks\NavigationAsset',
+        'app\assets\blocks\StaticBackgroundAsset',
         // 'yii\web\YiiAsset',
         // 'yii\web\JqueryAsset',
     ],
