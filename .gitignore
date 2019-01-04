@@ -17,6 +17,7 @@ composer.phar
 # SASS & GULP
 /resources/.sass-cache
 /resources/local/
+/resources-block/**/scss/*.css
 
 #IDE: emacs
 *~
