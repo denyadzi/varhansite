@@ -5,6 +5,8 @@
  * Use env-local-db.php to configure you database.
  */
 
+use yii\helpers\ArrayHelper;
+
 /*
  * Enable or disable the debugging, if those values are deleted YII_DEBUG is false and YII_ENV is prod.
  * The YII_ENV value will also be used to load assets based on environment (see assets/ResourcesAsset.php)
@@ -15,7 +17,18 @@ defined('YII_DEBUG') or define('YII_DEBUG', true);
 $config = require ('env-common.php');
 
 $config['modules']['admin']['userIdleTimeout'] = 3600 * 3;
-$config['components']['assetManager']['linkAssets'] = true;
+$config = ArrayHelper::merge($config, [
+    'components' => [
+        'assetManager' => [
+            'linkAssets' => true,
+            'converter' => [
+                'class' => 'yii\web\AssetConverter',
+                'commands' => [
+                    'scss' => ['css', 'node-sass {from} > {to}'],
+                ],
+            ],
+        ],
+    ]]);
 
 if (YII_DEBUG) {
     $config['bootstrap'][] = 'debug';
@@ -25,4 +38,4 @@ if (YII_DEBUG) {
 }
 
 
-return \yii\helpers\ArrayHelper::merge($config, require('env-local-db.php'));
+return ArrayHelper::merge($config, require('env-local-db.php'));

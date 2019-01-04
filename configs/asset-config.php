@@ -39,5 +39,11 @@ return [
         'bundles' => [
             'yii\web\JqueryAsset' => false,
         ],
+        'converter' => [
+            'class' => 'yii\web\AssetConverter',
+            'commands' => [
+                'scss' => ['css', 'node-sass {from} > {to}'],
+            ],
+        ],
     ],
 ];
