@@ -1,36 +1,47 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/luyadev/luya/master/docs/logo/luya-logo-0.2x.png" alt="LUYA Logo"/>
-</p>
+### Сайт фальклорнага гурта Варган
 
-# LUYA Kickstarter Application
+## Наладка лакальнага асяраддзя для распрацоўкі
 
-[![LUYA](https://img.shields.io/badge/Powered%20by-LUYA-brightgreen.svg)](https://luya.io)
-[![Total Downloads](https://poser.pugx.org/luyadev/luya-kickstarter/downloads)](https://packagist.org/packages/luyadev/luya-kickstarter)
-[![License](https://poser.pugx.org/luyadev/luya-kickstarter/license)](https://packagist.org/packages/luyadev/luya-kickstarter)
-[![Slack Support](https://img.shields.io/badge/Slack-luyadev-yellowgreen.svg)](https://slack.luya.io/)
+Гэтае правадніцтва асвятляе працэс наладкі праекта ў асяроддзі GNU/Linux. У іншых АС наладка не праводзілася. Праект выкарыстоўвае платформу [docker](https://www.docker.com/why-docker). Тэарэтычна, усе АС, што падтрымліваюць docker, могуць пасаваць для распрацоўкі дадзенага сайта. 
 
+Усталяванне docker'а тут не асвятляецца, калі ласка, звяртайцеся да [афіцыйнай дакументацыі](https://docs.docker.com/). Да прыкладу, працэс усталявання Docker Community Edition (CE) апісаны [тут](https://docs.docker.com/install/linux/docker-ce/ubuntu/). Таксама неабходна ўсталяваць дапаможны дадатак ```docker-compose```
 
-[LUYA](https://github.com/luyadev/luya) is a [Yii 2 PHP Framework](https://github.com/yiisoft/yii2) wrapper which provides out of the box functions like an **administration interface**, a beautiful looking **content management system**, **payment** modules, **agency workflows** and other tools to develop your website pretty fast!
+Далей мяркуецца, што на Вашым кампутары паспяхова выконваецца загад ```docker run hello-world``` і дае непусты вынік загад ```which docker-compose```.
 
-![LUYA RC4 Admin](https://raw.githubusercontent.com/luyadev/luya/master/docs/guide/img/luya-rc4.png)
+# Токен для ўсталявання composer-пакункаў з github
 
-### Installation
+Токен (сімвальны код) мусіць быць запісаны ў файл ```.env``` у корані праекта. Знак кропкі на пачатку імя азначае для UNIX-сістэмы, што файл схаваны. Зрабіце копію файла ```.env.dist``` з назваю ```.env```. У тэкставым рэдактары ў файле ```.env``` прапішыце свой уласны токен пасля знака ```=``` без прабелаў.
 
-We have a made an absolut easy to understand *STEP-BY-STEP* Guide to install LUYA:
+Калі ў Вас няма яшчэ github токену і патрэбная дапамога з яго генерацыяй, то глядзіце правадніцтва [тут](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/). Заўважце, што для праекта дастаткова адзначыць правы доступу з групы ```repo```.
 
-+ [How to install](https://luya.io)
-+ [Video Tutorials](https://luya.io/videos)
-+ [How to upgrade current website](https://luya.io/guide/install-upgrade)
+# Лакальныя файлы канфігурацыі вэб-дадатка
 
-### Questions and Problems
+Шэраг файлаў не індэксуюцца сістэмаю кантроля версій (git'ам) і мусяць быць створаныя лакальна. Як і ў выпадку з ```.env``` файлам яны маюць пашырэнне ```.dist``` і месцяцца ў тэчцы ```configs```.
 
-If you have any questions or problems, don't hesitate to create a [new issue](https://github.com/luyadev/luya/issues/new) on the project repository.
+Адкрыўшы тэчку ```configs``` проста зрабіце ўнутры яе копіі файлаў ```env.php.dist``` і ```env-local-assets.php.dist``` без пашырэнняў ```.dist``` -- адпаведна ```env.php``` і ```env-local-assets.php```. Копію файла ```env-local-db.php.dist``` рабіць ня трэба.
 
-+ [Issues on GitHub](https://github.com/luyadev/luya/issues)
-+ [Ask us in Gitter](https://gitter.im/luyadev/luya)
+# Запуск docker-асяроддзя
 
-#### Contribution
+Адкрыўшы корань праекта (дзе месцяцца файлы ```docker-compose.yml``` і ```.env```), выканайце загад ```docker-compose```. Гэтая каманда запускае ўсё неабходнае для функцыянавання сайта. Першы запуск будзе доўгім і спампуе шмат інфармацыі з інтэрнэту. Далейшыя запускі ня будуць патрабаваць злучэння з інтэрнэтам і ня будуць займаць шмат часу.
 
-We are always looking for people who share their thoughts, code and problems with us. Below the links to the contribution guides:
+У кансолі пры першым запуску будзе выводзіцца шмат інфармацыі пра ўсталяванне пакункаў ды капіяванне файлаў. Калі запампоўка і наладка завяршаецца, кансоль застаецца занятай працэссам ```docker-compose```, які адлюстроўвае лог далучэнняў да сайта -- гэта і ёсць працоўны рэжым. Для спынення працэса трэба даць каманду з клавіятуры ```Ctrl+c```.
 
-[Help us building LUYA](https://luya.io/guide/luya-collaboration)
+Такім чынам, загад ```docker-compose``` запускае ўсе патрэбныя працэсы для функцыянаванне сайта.
+
+Сайт цяпер мусіць быць даступны праз адрас ```localhost:8080```
+
+# Ініцыялізацыя базы даных
+
+Гэты крок патрэбны толькі пасля першага запуску ```docker-compose```, калі толькі ствараюцца вобразы і кантэйнеры docker.
+
+Пры запушчаным ```docker-compose```, у іншай кансолі з каранёвай тэчкі выканайце загад ```./setup```. Выконваюцца міграцыі табліц базы даных CMS і адмінкі, імпартуюцца шаблоны і блокі, cтвараецца адміністратарскі ўліковы запіс:
+
+**E-mail**: admin@admin.com
+**Пароль**: admin
+
+Уваход у адмінку: ```localhost:8080/admin```
+
+# Распрацоўка
+
+Сайт працуе на [PHP](https://php.net), [LUYA](https://luya.io) і [Yii2](https://yiiframework.com). Для распрацоўкі неабходнае валоданне гэтымі тэхналогіямі, і, вядома, HTML/CSS(SASS)/JavaScript.
+
