@@ -20,4 +20,9 @@ jQuery(function($) {
       topSpacing: 0,
       zIndex: 9999,
     });
+
+  $('.js-nav-tiny-target').tinyNav({
+    header: 'MENU',
+    active: 'selected',
+  });
 });

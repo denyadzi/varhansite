@@ -14,7 +14,7 @@ use app\assets\blocks\NavigationAsset;
 NavigationAsset::register($this);
 ?>
 <nav class="navigation-block js-nav-sticky">
-    <ul class="navigation-block__list">
+    <ul class="navigation-block__list js-nav-tiny-target">
 	<?php foreach (Yii::$app->menu->findAll(['parent_nav_id' => 0, 'container' => 'default']) as $item): ?>
 	    <li class="navigation-block__list-item">
 		<a class="navigation-block__link" href="<?=$item->link?>"><?=$item->title?></a>

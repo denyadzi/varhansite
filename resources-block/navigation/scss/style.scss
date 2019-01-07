@@ -1,3 +1,5 @@
+$break-small: 600px;
+
 .navigation-block {
     background-color: #333;
     background-color: rgba(0,0,0,.4);
@@ -23,6 +25,10 @@
 	justify-content: center;
 	list-style: none;
 	margin: 0;
+
+	@media (max-width: $break-small) {
+	    display: none;
+	}
     }
     
     &__list-item {
@@ -48,5 +54,16 @@
     &--sticky__link:visited,
     &--sticky__link:active {
 	color: #000;
+    }
+}
+
+.tinynav {
+    display: none;
+    margin: 0 auto;
+    width: 90%;
+    color: #000;
+    
+    @media (max-width: $break-small) {
+	display: block;
     }
 }
