@@ -13,7 +13,7 @@ use app\assets\blocks\NavigationAsset;
 
 NavigationAsset::register($this);
 ?>
-<nav class="navigation-block">
+<nav class="navigation-block js-nav-sticky">
     <ul class="navigation-block__list">
 	<?php foreach (Yii::$app->menu->findAll(['parent_nav_id' => 0, 'container' => 'default']) as $item): ?>
 	    <li class="navigation-block__list-item">

@@ -8,5 +8,11 @@ class NavigationAsset extends \luya\web\Asset
     public $css = [
         'scss/style.scss',
     ];
-    public $js = [];
+    public $js = [
+        'js/jquery.sticky.js',
+        'js/block.js',
+    ];
+    public $depends = [
+        'yii\web\JqueryAsset',
+    ];
 }

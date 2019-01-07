@@ -8,6 +8,15 @@
     color: #fff;
     padding: 1em 0;
     text-transform: uppercase;
+
+    &--sticky {
+	background-color: #fff;
+	color: #000;
+	border-top: none;
+	border-bottom: 1px solid #000;
+	border-bottom: 1px solid rgba(0,0,0,.4);
+	box-shadow: 2px 0 5px rgba(0,0,0,.4);
+    }
     
     &__list {
 	display: flex;
@@ -29,5 +38,15 @@
     &__link:visited,
     &__link:active {
 	color: #fff;
+    }
+
+    &__link:hover {
+	opacity: .4;
+    }
+    
+    &--sticky__link:link,
+    &--sticky__link:visited,
+    &--sticky__link:active {
+	color: #000;
     }
 }
