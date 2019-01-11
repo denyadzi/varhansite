@@ -14,7 +14,7 @@ class ResourcesAsset extends \luya\web\Asset
         'css/skeleton.css',
         'css/animate.css',
         'scss/base.scss',
-        'scss/header.scss',
+        'scss/site-header.scss',
         'scss/site-languages.scss',
         'scss/site-logo.scss',
         'scss/site-front-photo.scss',
