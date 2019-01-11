@@ -61,6 +61,9 @@ $config = [
                 ->add('sitelogo', 'Site Logo')
                 ->vars(['caption' => '', 'textType' => 0])
                 ->cfgs(['internalLink' => 1, 'externalLink' => null, 'cssClass' => 'site-logo__image site-logo--big-header__image', 'divCssClass' => 'site-logo site-logo--big-header', 'width' => null, 'height' => null])
+                ->add('frontphoto', 'Front photo')
+                ->vars(['caption' => '', 'textType' => 0])
+                ->cfgs(['internalLink' => null, 'externalLink' => null, 'cssClass' => 'site-front-photo__image', 'divCssClass' => 'site-front-photo', 'width' => null, 'height' => null])
                 ->register(),
             ],
         ],
