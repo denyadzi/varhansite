@@ -17,7 +17,13 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'empty' => 'Empty',
-    'label_image' => 'Background image',
-    'name' => 'Header Background Image',
+    'empty' => 'Пусто',
+    'label_sc_link' => 'Ссылка на страницу Soundcloud',
+    'label_sc_playlist' => 'Встроенный Soundcloud плейлист',
+    'label_youtube_link' => 'Ссылка на канал Youtube',
+    'label_youtube_video' => 'Встроенное Youtube видео',
+    'more_music' => 'Больше музыки',
+    'more_video' => 'Больше видео',
+    'name' => 'Медиа',
+    'with_link' => 'со ссылкой',
 ];

@@ -18,6 +18,12 @@
  */
 return [
     'empty' => 'Empty',
-    'label_image' => 'Background image',
-    'name' => 'Header Background Image',
+    'label_sc_link' => 'Soundcloud page link',
+    'label_sc_playlist' => 'Soundclound embedded playlist',
+    'label_youtube_link' => 'Youtube channel link',
+    'label_youtube_video' => 'Youtube embedded video',
+    'more_music' => 'More Music',
+    'more_video' => 'More Video',
+    'name' => 'Media',
+    'with_link' => 'with link',
 ];

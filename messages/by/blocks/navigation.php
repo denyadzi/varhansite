@@ -17,7 +17,5 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'empty' => 'Empty',
-    'label_image' => 'Background image',
-    'name' => 'Header Background Image',
+    'name' => '',
 ];

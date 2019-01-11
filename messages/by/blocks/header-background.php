@@ -17,7 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'empty' => '',
-    'label_image' => '',
-    'name' => '',
+    'empty' => 'Няма выявы',
+    'label_image' => 'Выява фону',
+    'name' => 'Выява фону хэдара',
 ];

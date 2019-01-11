@@ -17,7 +17,9 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'empty' => 'Empty',
-    'label_image' => 'Background image',
-    'name' => 'Header Background Image',
+    'content_label' => 'Content',
+    'fragment_label' => 'Menu link fragment',
+    'name' => 'Content Piece',
+    'no_title' => 'Title not set',
+    'title_label' => 'Title',
 ];

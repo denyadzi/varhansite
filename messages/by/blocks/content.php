@@ -17,7 +17,9 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'empty' => 'Empty',
-    'label_image' => 'Background image',
-    'name' => 'Header Background Image',
+    'content_label' => 'Змесціва',
+    'fragment_label' => 'Фрагмент спасылкі меню',
+    'name' => 'Блок кантэнту',
+    'no_title' => 'Загаловак не заданы',
+    'title_label' => 'Загаловак',
 ];
