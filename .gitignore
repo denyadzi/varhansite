@@ -2,7 +2,6 @@
 /vendor
 /bin
 /runtime
-/luya
 composer.phar
 .DS_Store
 .env
