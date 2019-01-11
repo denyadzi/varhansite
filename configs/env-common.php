@@ -48,7 +48,21 @@ $config = [
         'cmsadmin' => [
             'class' => 'luya\cms\admin\Module',
             'hiddenBlocks' => [],
-            'blockVariations' => [],
+            'blockVariations' => [
+                \luya\generic\blocks\TitleBlock::variations()
+                ->add('sitesubtitlebig', 'Subtitle Big')
+                ->vars(['headingType' => 'h2'])
+                ->cfgs(['cssClass' => 'site-header-content--big__subtitle'])
+                ->add('locationnamebig', 'Location Name Big')
+                ->vars(['headingType' => 'h4'])
+                ->cfgs(['cssClass' => 'site-header-content--big__location-name'])
+                ->register(),
+                \luya\bootstrap3\blocks\ImageBlock::variations()
+                ->add('sitelogo', 'Site Logo')
+                ->vars(['caption' => '', 'textType' => 0])
+                ->cfgs(['internalLink' => 1, 'externalLink' => null, 'cssClass' => 'site-logo__image site-logo--big-header__image', 'divCssClass' => 'site-logo site-logo--big-header', 'width' => null, 'height' => null])
+                ->register(),
+            ],
         ],
     ],
     'components' => [

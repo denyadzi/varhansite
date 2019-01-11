@@ -1,45 +1,29 @@
 .site-header {
-    background-size: cover;
-    min-height: 500px;
-    position: relative;
-    border-top: 1px solid #000;
-    border-top: 1px solid rgba(0,0,0,.4);
+    &--big {
+        background-size: cover;
+        min-height: 500px;
+        position: relative;
+        border-top: 1px solid #000;
+        border-top: 1px solid rgba(0,0,0,.4);
+    }
 }
+
+.site-header-content {
+    &--big {
+        margin-top: 10%;
+        &__subtitle {
+            text-align: center;
+        }
+        &__location-name {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+    }
+}
+
 .site-header-bottom {
     bottom: 0;
     left: 0;
     position: absolute;
     right: 0;
-}
-
-.site-header-languages {
-    float: right;
-    margin-right: 2%;
-    background-color: #000;
-    background-color: rgba(0,0,0,.4);
-    
-    &__list {
-	list-style: none;
-	margin: 0;
-	display: flex;
-    }
-
-    &__item {
-	padding: 0 1rem;
-	margin: 0;
-    }
-
-    &__link {
-	text-decoration: none;
-    }
-    
-    &__link:link,
-    &__link:visited,
-    &__link:active {
-	color: #fff;
-    }
-
-    &__link:hover {
-	opacity: .4;
-    }
 }

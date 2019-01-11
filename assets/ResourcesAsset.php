@@ -13,7 +13,10 @@ class ResourcesAsset extends \luya\web\Asset
         'css/normalize.css',
         'css/skeleton.css',
         'css/animate.css',
+        'scss/base.scss',
         'scss/header.scss',
+        'scss/site-languages.scss',
+        'scss/site-logo.scss',
     ];
 
     public $js = [

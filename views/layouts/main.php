@@ -21,11 +21,13 @@ $this->beginPage();
         <?php $this->head() ?>
     </head>
     <body>
-	<?php $this->beginBody() ?>
-	<?=Yii::$app->element->bigHeader()?>
-	<?=$content?>
-	<?=Yii::$app->element->smallHeader()?>
-    <?php $this->endBody() ?>
+        <div class="site">
+	    <?php $this->beginBody() ?>
+	    <?=Yii::$app->element->bigHeader()?>
+	    <?=$content?>
+	    <?=Yii::$app->element->smallHeader()?>
+        </div>
+        <?php $this->endBody() ?>
     </body>
 </html>
 <?php $this->endPage() ?>
