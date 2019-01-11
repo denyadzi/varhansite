@@ -103,6 +103,8 @@ class MediaBlock extends PhpBlock
     private function getEscapedUrl($var)
     {
         $value = $this->getVarValue($var, '');
+        if (empty ($value)) return '';
+        
         $l = parse_url ($value);
         return "{$l['scheme']}://{$l['host']}{$l['path']}";
     }
