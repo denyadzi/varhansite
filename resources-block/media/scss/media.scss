@@ -1,0 +1,19 @@
+.media-block {
+    &__more-link-wrapper {
+        text-align: center;
+        padding: 2em 0;
+    }
+    
+    &__more-link:link,
+    &__more-link:visited,
+    &__more-link:active {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #000;
+        opacity: .4;
+    }
+    
+    &__more-link:hover {
+        opacity: 1;
+    }
+}

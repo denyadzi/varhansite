@@ -20,6 +20,7 @@ return [
         'app\assets\blocks\ContentAsset',
         'app\assets\blocks\NavigationAsset',
         'app\assets\blocks\StaticBackgroundAsset',
+        'app\assets\blocks\MediaAsset',        
         // 'yii\web\YiiAsset',
         // 'yii\web\JqueryAsset',
     ],
