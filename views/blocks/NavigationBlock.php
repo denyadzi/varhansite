@@ -22,7 +22,7 @@ NavigationAsset::register($this);
 	    <?php if ($item->isHome): ?>
 		<?php foreach (Hook::iterate(Constants::HOOK_NAVIGATION_INJECT_AFTER_HOME) as $href => $title): ?>
 		    <li class="navigation-block__list-item">
-			<a class="navigation-block__link" href="<?=$href?>"><?=$title?></a>
+			<a class="navigation-block__link<?= 0 === strpos ($href, '#') ? ' js-inner-link' : '' ?>" href="<?=$href?>"><?=$title?></a>
 		    </li>
 		<?php endforeach ?>
 	    <?php endif ?>

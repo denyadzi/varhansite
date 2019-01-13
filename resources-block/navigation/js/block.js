@@ -25,4 +25,10 @@ jQuery(function($) {
     header: 'MENU',
     active: 'selected',
   });
+
+  $('.js-inner-link').click(function(e) {
+    e.preventDefault();
+    var selector = $(e.target).attr('href');
+    $(document).scrollTo(selector, 700, {easing: 'swing'});
+  });
 });

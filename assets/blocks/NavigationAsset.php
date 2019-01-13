@@ -11,6 +11,7 @@ class NavigationAsset extends \luya\web\Asset
     public $js = [
         'js/jquery.sticky.js',
         'js/tinynav.js',
+        'js/scroolto.js',
         'js/block.js',
     ];
     public $depends = [
