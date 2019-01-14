@@ -8,7 +8,8 @@
         "luyadev/luya-module-admin" : "~1.2.0",
         "luyadev/luya-module-cms" : "~1.0.0",
         "luyadev/luya-bootstrap3" : "~1.0.0",
-        "luyadev/luya-generic" : "~1.0.0"
+        "luyadev/luya-generic" : "~1.0.0",
+        "facebook/graph-sdk": "~5.7.0"
     },
     "require-dev": {
         "yiisoft/yii2-gii" : "~2.0.0",

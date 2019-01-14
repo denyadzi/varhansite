@@ -1,5 +1,7 @@
 <?php
 
+use yii\helpers\ArrayHelper;
+
 $config = [
     /*
      * For best interoperability it is recommend to use only alphanumeric characters when specifying an application ID.
@@ -20,6 +22,9 @@ $config = [
      */
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'controllerMap' => [
+        'fb-album' => 'app\commands\FbAlbumController',
+    ],
     'modules' => [
         /*
          * If you have other admin modules (e.g. cmsadmin) then you going to need the admin. The Admin module provides
@@ -101,6 +106,12 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\DummyCache', // use: yii\caching\FileCache
         ],
+        'longCache' => [
+            'class' => 'yii\caching\FileCache',
+            'fileMode' => 0664,
+            'dirMode' => 0775,
+            'gcProbability' => 0,
+        ],
         /*
     	 * Translation component. If you don't have translations just remove this component and the folder `messages`.
     	 */
@@ -142,6 +153,9 @@ $config = [
                 ],
             ],
         ],
+        'fb' => ArrayHelper::merge([
+            'class' => 'app\components\Facebook',
+        ], require ('fb-local.php')),
     ],
 ];
 

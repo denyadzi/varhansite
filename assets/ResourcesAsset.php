@@ -13,6 +13,7 @@ class ResourcesAsset extends \luya\web\Asset
         'css/normalize.css',
         'css/skeleton.css',
         'css/animate.css',
+        'lightbox/css/lightbox.min.css',
         'scss/base.scss',
         'scss/site-header.scss',
         'scss/site-languages.scss',
@@ -22,6 +23,7 @@ class ResourcesAsset extends \luya\web\Asset
 
     public $js = [
         'js/header.js',
+        'lightbox/js/lightbox.min.js',
     ];
     
     public $depends = [

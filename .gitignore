@@ -12,6 +12,7 @@ composer.phar
 /configs/env-local-db.php
 /configs/env.php
 /configs/env-local-assets.php
+/configs/fb-local.php
 
 # SASS & GULP
 /resources/.sass-cache
