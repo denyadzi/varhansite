@@ -116,10 +116,11 @@ class FbAlbumsBlock extends PhpBlock
                 'style' => "background-image: url('{$album['cover_photo']['picture']}');"
                 . "width:100%;"
                 . "height:100px;"
+                . "margin: 5px 0;"
                 . "background-size: cover",
             ]);
             $row .= Html::tag('div', $image, [
-                'class' => 'col col-2',
+                'class' => 'col col-12 col-lg-4 col-xl-3 col-xxl-2',
             ]);
         }
         $content = Html::tag('div',
