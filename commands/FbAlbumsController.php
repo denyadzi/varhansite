@@ -90,6 +90,7 @@ class FbAlbumsController extends \luya\console\Command
                     'name' => $photo->getField('name'),
                 ], $presets);
             }
+
             $photos[$albumId] = $albumData;
         }
         return $photos;
@@ -103,8 +104,7 @@ class FbAlbumsController extends \luya\console\Command
         ];
         if ( ! is_array ($variants) || empty ($variants)) return $presets;
         
-        $sourceImageGr = array_shift ($variants);
-        $presets['source'] = $this->selectImageVariant($variants, 1200);
+        $presets['source'] = $this->selectImageVariant($variants, 600, 1200);
 
         $smallestPreview = $this->selectImageVariant($variants, 0, 300);
         $optimalPreview = $this->selectImageVariant($variants, 300, 600);
@@ -123,9 +123,16 @@ class FbAlbumsController extends \luya\console\Command
         });
         while ($imageGr = array_shift ($variants)) {
             $imageWidth = $imageGr->getField('width');
-            if ($imageWidth >= $minWidth
-                && $maxWidth && $imageWidth <= $maxWidth)
-            {
+            $minOk = $maxOk = false;
+            if ($imageWidth >= $minWidth) {
+                $minOk = true;
+            }
+            if (is_null ($maxWidth)) {
+                $maxOk = true;
+            } else if ($imageWidth <= $maxWidth) {
+                $maxOk = true;
+            }
+            if ($minOk && $maxOk) {
                 return $imageGr->getField('source');
             }
         }
