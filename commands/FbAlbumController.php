@@ -19,10 +19,7 @@ class FbAlbumController extends \luya\console\Command
 
     public function actionFetch()
     {
-        $albumsSelection = $this->getCachedAlbumsSelection();
-        if ( ! $albumsSelection) {
-            $albumsSelection = $this->fetchAlbumSelection();
-        }
+        $albumsSelection = $this->fetchAlbumSelection();
         if (empty ($albumsSelection)) {
             $this->outputError('Smth went wrong, no albums selection');
             return;
@@ -30,10 +27,7 @@ class FbAlbumController extends \luya\console\Command
             $this->setCachedAlbumsSelection($albumsSelection);
         }
         
-        $photos = $this->getCachedPhotos();
-        if ( ! $photos) {
-            $photos = $this->fetchPhotos(array_map (function($a){return $a['value'];}, $albumsSelection));
-        }
+        $photos = $this->fetchPhotos(array_map (function($a){return $a['value'];}, $albumsSelection));
         if (empty ($photos)) {
             $this->outputError('Smth went wrong, no photos');
             return;
@@ -76,9 +70,11 @@ class FbAlbumController extends \luya\console\Command
             $coverGr = $album->getField('cover_photo');
             $coverImages = $coverGr->getField('images')->all();
             $sourceCoverImageGr = is_array ($coverImages) ? array_shift ($coverImages) : null;
+            $previewCoverImageGr = is_array ($coverImages) ? array_pop ($coverImages) : null;
             $coverPhotoData = [
                 'picture' => $coverGr->getField('picture'),
                 'source' => $sourceCoverImageGr ? $sourceCoverImageGr->getField('source') : '',
+                'preview' => $previewCoverImageGr ? $previewCoverImageGr->getField('source') : '',
                 'name' => $coverGr->getField('name'),
             ];
             $albumData = [
@@ -91,8 +87,10 @@ class FbAlbumController extends \luya\console\Command
                 }
                 $images = $photo->getField('images')->all();
                 $sourceImageGr = is_array ($images) ? array_shift ($images) : null;
+                $previewImageGr = is_array ($images) ? array_pop ($images) : null;                
                 $albumData['photos'][] = [
                     'source' => $sourceImageGr ? $sourceImageGr->getField('source') : '',
+                    'preview' => $previewImageGr ? $previewImageGr->getField('source') : '',
                     'picture' => $photo->getField('picture'),
                     'name' => $photo->getField('name'),
                 ];

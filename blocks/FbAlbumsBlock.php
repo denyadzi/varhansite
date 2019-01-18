@@ -112,8 +112,15 @@ class FbAlbumsBlock extends PhpBlock
 
         $row = '';
         foreach ($gallery as $id => $album) {
-            $cover = Html::img($album['cover_photo']['picture']);
-            $row .= Html::tag('div', $cover, ['class' => 'col-xs-4']);
+            $image = Html::tag('div', '', [
+                'style' => "background-image: url('{$album['cover_photo']['picture']}');"
+                . "width:100%;"
+                . "height:100px;"
+                . "background-size: cover",
+            ]);
+            $row .= Html::tag('div', $image, [
+                'class' => 'col col-2',
+            ]);
         }
         $content = Html::tag('div',
                              Html::tag('div', $row, ['class' => 'row']),
