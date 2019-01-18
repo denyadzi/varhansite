@@ -104,7 +104,7 @@ class FbAlbumsController extends \luya\console\Command
         ];
         if ( ! is_array ($variants) || empty ($variants)) return $presets;
         
-        $presets['source'] = $this->selectImageVariant($variants, 600, 1200);
+        $presets['source'] = $this->selectImageVariant($variants);
 
         $smallestPreview = $this->selectImageVariant($variants, 0, 300);
         $optimalPreview = $this->selectImageVariant($variants, 300, 600);
@@ -113,7 +113,7 @@ class FbAlbumsController extends \luya\console\Command
         return $presets;
     }
 
-    private function selectImageVariant(array $variants, $minWidth, $maxWidth = null)
+    private function selectImageVariant(array $variants, $minWidth = 0, $maxWidth = null)
     {
         usort ($variants, function($a, $b) {
             $aW = $a->getField('width');
