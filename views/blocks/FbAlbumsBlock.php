@@ -26,11 +26,11 @@ FbAlbumsAsset::register($this);
                        class="fb-albums-block__image"
                        style="background-image: url('<?=$albumData['cover_photo']['preview']?>')"
                        data-lightbox="<?=$id?>"
-                       data-title="<?=$albumData['cover_photo']['name']?>"></a>
+                       data-title="<?=htmlspecialchars ($albumData['cover_photo']['name'])?>"></a>
                     <?php foreach ($albumData['photos'] as $photoData): ?>
                         <a href="<?=$photoData['source']?>"
                            data-lightbox="<?=$id?>"
-                           data-title="<?=$photoData['name']?>"></a>
+                           data-title="<?=htmlspecialchars ($photoData['name'])?>"></a>
                     <?php endforeach ?>
                 </div>
                 <?php if ($i++ && 0 == $i % 3): ?>
