@@ -22,6 +22,7 @@ return [
         'app\assets\blocks\StaticBackgroundAsset',
         'app\assets\blocks\MediaAsset',
         'app\assets\blocks\FbAlbumsAsset',
+        'app\assets\blocks\SocialLinksAsset',
         // 'yii\web\YiiAsset',
         // 'yii\web\JqueryAsset',
     ],
