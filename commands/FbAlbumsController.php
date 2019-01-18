@@ -3,10 +3,11 @@
 namespace app\commands;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 use Facebook\Exceptions\FacebookSDKException;
 use app\traits\FbAlbumsCommand;
 
-class FbAlbumController extends \luya\console\Command
+class FbAlbumsController extends \luya\console\Command
 {
     use FbAlbumsCommand;
     
@@ -69,14 +70,11 @@ class FbAlbumController extends \luya\console\Command
             $album = $r->getGraphAlbum();
             $coverGr = $album->getField('cover_photo');
             $coverImages = $coverGr->getField('images')->all();
-            $sourceCoverImageGr = is_array ($coverImages) ? array_shift ($coverImages) : null;
-            $previewCoverImageGr = is_array ($coverImages) ? array_pop ($coverImages) : null;
-            $coverPhotoData = [
+            $presets = $this->fetchImagePresets($coverImages);            
+            $coverPhotoData = ArrayHelper::merge([
                 'picture' => $coverGr->getField('picture'),
-                'source' => $sourceCoverImageGr ? $sourceCoverImageGr->getField('source') : '',
-                'preview' => $previewCoverImageGr ? $previewCoverImageGr->getField('source') : '',
                 'name' => $coverGr->getField('name'),
-            ];
+            ], $presets);
             $albumData = [
                 'cover_photo' => $coverPhotoData,
                 'photos' => [],
@@ -86,17 +84,51 @@ class FbAlbumController extends \luya\console\Command
                     continue;
                 }
                 $images = $photo->getField('images')->all();
-                $sourceImageGr = is_array ($images) ? array_shift ($images) : null;
-                $previewImageGr = is_array ($images) ? array_pop ($images) : null;                
-                $albumData['photos'][] = [
-                    'source' => $sourceImageGr ? $sourceImageGr->getField('source') : '',
-                    'preview' => $previewImageGr ? $previewImageGr->getField('source') : '',
+                $presets = $this->fetchImagePresets($images);
+                $albumData['photos'][] = ArrayHelper::merge([
                     'picture' => $photo->getField('picture'),
                     'name' => $photo->getField('name'),
-                ];
+                ], $presets);
             }
             $photos[$albumId] = $albumData;
         }
         return $photos;
+    }
+
+    private function fetchImagePresets($variants)
+    {
+        $presets = [
+            'preview' => '',
+            'source' => '',
+        ];
+        if ( ! is_array ($variants) || empty ($variants)) return $presets;
+        
+        $sourceImageGr = array_shift ($variants);
+        $presets['source'] = $this->selectImageVariant($variants, 1200);
+
+        $smallestPreview = $this->selectImageVariant($variants, 0, 300);
+        $optimalPreview = $this->selectImageVariant($variants, 300, 600);
+        $presets['preview'] = $optimalPreview ?: $smallestPreview;
+
+        return $presets;
+    }
+
+    private function selectImageVariant(array $variants, $minWidth, $maxWidth = null)
+    {
+        usort ($variants, function($a, $b) {
+            $aW = $a->getField('width');
+            $bW = $b->getField('width');
+            if ($aW == $bW) return 0;
+            return $aW > $bW ? -1 : 1;
+        });
+        while ($imageGr = array_shift ($variants)) {
+            $imageWidth = $imageGr->getField('width');
+            if ($imageWidth >= $minWidth
+                && $maxWidth && $imageWidth <= $maxWidth)
+            {
+                return $imageGr->getField('source');
+            }
+        }
+        return '';
     }
 }

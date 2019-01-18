@@ -23,7 +23,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerMap' => [
-        'fb-album' => 'app\commands\FbAlbumController',
+        'fb-albums' => 'app\commands\FbAlbumsController',
     ],
     'modules' => [
         /*
