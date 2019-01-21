@@ -93,8 +93,9 @@ $config = [
          * default: (array) Contains the default setup for the current language, this must match your language system configuration.
          */
         'composition' => [
-            'hidden' => true, // no languages in your url (most case for pages which are not multi lingual)
-            'default' => ['langShortCode' => 'en'], // the default language for the composition should match your default language shortCode in the language table.
+            'hidden' => false, // no languages in your url (most case for pages which are not multi lingual)
+            'default' => ['langShortCode' => 'by'], // the default language for the composition should match your default language shortCode in the language table.
+            'hideDefaultPrefixOnly' => true,
         ],
         /*
          * If cache is enabled LUYA will cache cms blocks and speed up the system in different ways. In the prep config
