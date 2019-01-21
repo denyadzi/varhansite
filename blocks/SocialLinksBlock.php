@@ -128,14 +128,14 @@ class SocialLinksBlock extends PhpBlock
             if (empty ($link['link'])) continue;
 
             $empty = false;
-            $linksHtml .= Html::img($link['icon'], [
-                'style' => 'width:33%',
-            ]);
+            $imgHtml = Html::img($link['icon'], ['style' => 'max-width:100px']);
+            $linksHtml .= Html::tag('div', $imgHtml, ['class' => 'col col-12 col-sm-4', 'style' => 'text-align:center']);
         }
         if ($empty) {
             $linksHtml = Yii::t('blocks/social-links', 'empty');
         }
-        $content .= Html::tag('div', $linksHtml);
+        $row = Html::tag('div', $linksHtml, ['class' => 'row']);
+        $content .= Html::tag('div', $row, ['class' => 'container']);
         return $content;
     }
 }
