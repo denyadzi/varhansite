@@ -25,7 +25,7 @@ $this->beginPage();
 	    <?php $this->beginBody() ?>
 	    <?=Yii::$app->element->bigHeader()?>
 	    <?=$content?>
-	    <?=Yii::$app->element->smallHeader()?>
+	    <?=Yii::$app->element->footer()?>
         </div>
         <?php $this->endBody() ?>
     </body>

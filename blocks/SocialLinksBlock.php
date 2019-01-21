@@ -3,10 +3,12 @@
 namespace app\blocks;
 
 use Yii;
+use luya\Hook;
 use luya\helpers\Html;
 use luya\cms\base\PhpBlock;
 use luya\cms\frontend\blockgroups\ProjectGroup;
 use luya\cms\helpers\BlockHelper;
+use app\views\Constants;
 
 /**
  * Social Links Block.
@@ -26,6 +28,16 @@ class SocialLinksBlock extends PhpBlock
      * @var int The cache lifetime for this block in seconds (3600 = 1 hour), only affects when cacheEnabled is true
      */
     public $cacheExpiration = 3600;
+
+    public function init()
+    {
+        parent::init();
+        Hook::on(Constants::HOOK_SOCIAL_LINKS, function($hook) {
+            foreach ($this->getExtraValue('escaped_links') as $link) {
+                $hook[$link['icon']] = $link['link'];
+            }
+        });
+    }
 
     /**
      * @inheritDoc

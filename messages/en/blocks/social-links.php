@@ -22,5 +22,5 @@ return [
     'label_link' => 'Link',
     'label_links' => 'Links',
     'name' => 'Social Links',
-    'title' => 'Our social links',
+    'title' => 'Follow "Varhan" Band',
 ];

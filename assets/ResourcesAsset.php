@@ -19,6 +19,7 @@ class ResourcesAsset extends \luya\web\Asset
         'scss/site-languages.scss',
         'scss/site-logo.scss',
         'scss/site-front-photo.scss',
+        'scss/site-footer.scss',
     ];
 
     public $js = [
